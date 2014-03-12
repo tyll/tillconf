@@ -35,13 +35,16 @@ c() {
     cp "${TILLCONF}/${1}" "${DESTDIR}/${2:-${1}}"
 }
 
+
 cr() {
     cp -a "${TILLCONF}/${1}" "${DESTDIR}/${2:-${1}}"
 }
 
+
 md() {
     mkdir -p "${DESTDIR}/${1}"
 }
+
 
 lns() {
     ln -s -- "${TILLCONF}${1}" "${DESTDIR}/${2:-${1}}"
