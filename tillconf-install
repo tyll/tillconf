@@ -38,6 +38,78 @@ set -e
 # For debugging
 set -x
 
+# Generic utilities
+commonprefix() {
+    # Return common prefix of $1 and $2
+    _IFS=$IFS
+    IFS=/
+    parts1=($1)
+    parts2=($2)
+    IFS=$_IFS
+
+    # Initial
+    prefix=""
+
+    matching=1
+    for ((i=0; i < ${#parts2[@]}; i++))
+    do
+        if [[ $matching && ${parts1[i]} == ${parts2[i]} ]]
+        then
+            #echo component ${parts2[i]} > /dev/stderr
+            prefix+=${parts2[i]}/
+            continue
+        else
+            #echo different component ${parts1[i]} ${parts2[i]} > /dev/stderr
+            matching=0
+        fi
+    done
+    # remove suffix
+    if [[ "${prefix}" != "/" ]]
+    then
+        prefix=${prefix%/}
+    fi
+    echo "${prefix}"
+}
+
+
+relpath() {
+    # Return relative path from $2 to $1
+    dir1="${1%/*}"
+    dir2="${2%/*}"
+    prefix=$(commonprefix "${dir1}" "${dir2}")
+
+    subdirs1=${dir1#${prefix}}
+    subdirs2=${dir2#${prefix}}
+
+    _IFS=$IFS
+    IFS=/
+    parts2=($subdirs2)
+    IFS=$_IFS
+
+    relativepath=""
+    for ((i=0; i < ${#parts2[@]} - 1; i++))
+    do
+        relativepath+="../"
+    done
+    # remove trailing slash
+    relativepath="${relativepath%/}"
+
+    # add subdirs1
+    relativepath+="${subdirs1%/}"
+
+    # add last component of 1
+    relativepath+="/${1##*/}"
+
+    echo "${relativepath}"
+}
+
+
+relsymlink() {
+    # Symlink to $1 from $2
+    ln -s -- $(relpath "${@}") ${2}
+}
+
+# Used for config management
 c() {
     cp "${TILLCONF}/${1}" "${DESTDIR}/${2:-${1}}"
 }
@@ -54,7 +126,7 @@ md() {
 
 
 lns() {
-    ln -s -- "${TILLCONF}${1}" "${DESTDIR}/${2:-${1}}"
+    relsymlink "${TILLCONF}${1}" "${DESTDIR}/${2:-${1}}"
 }
 
 
