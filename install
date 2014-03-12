@@ -47,7 +47,7 @@ lns() {
     ln -s -- "${TILLCONF}${1}" "${DESTDIR}/${2:-${1}}"
 }
 
-if [ ! -d .vim/bundle/neobundle ]
+if [ ! -d ${DESTDIR}/.vim/bundle/neobundle ]
 then
     echo "Installing neobundle..."
     git clone https://github.com/Shougo/neobundle.vim ${DESTDIR}/.vim/bundle/neobundle
