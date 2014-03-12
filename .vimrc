@@ -32,6 +32,11 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 " Nobundle itself
 NeoBundleFetch 'Shougo/neobundle.vim', {'name': 'neobundle'}
 
+" For ansible
+NeoBundle 'stephpy/vim-yaml'
+NeoBundle 'chase/vim-ansible-yaml'
+
+
 NeoBundle 'junegunn/vim-easy-align'
 
 let g:easy_align_delimiters = {
