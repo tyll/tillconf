@@ -22,14 +22,21 @@
 # THE SOFTWARE.
 #}}}
 
+# Check whether script executed or sourced
+if [ "$_" == "$0" ]
+then
+    # Script was executed
+    TILLCONF_MAIN="true"
+    DESTDIR="$(readlink -f ${1:-${HOME}})"
+    TILLCONF="$(readlink -f "${0%/*}")/"
+fi
+
+
 # Abort on failure
 set -e
 
 # For debugging
 set -x
-
-DESTDIR="$(readlink -f ${1:-${HOME}})"
-TILLCONF="$(readlink -f "${0%/*}")/"
 
 c() {
     cp "${TILLCONF}/${1}" "${DESTDIR}/${2:-${1}}"
@@ -50,11 +57,21 @@ lns() {
     ln -s -- "${TILLCONF}${1}" "${DESTDIR}/${2:-${1}}"
 }
 
-if [ ! -d ${DESTDIR}/.vim/bundle/neobundle ]
-then
-    echo "Installing neobundle..."
-    git clone https://github.com/Shougo/neobundle.vim ${DESTDIR}/.vim/bundle/neobundle
-    echo "done"
-fi
 
-lns .vimrc
+main() {
+    read -p "Going to install tillconf..."
+    if [ ! -d ${DESTDIR}/.vim/bundle/neobundle ]
+    then
+        echo "Installing neobundle..."
+        git clone https://github.com/Shougo/neobundle.vim ${DESTDIR}/.vim/bundle/neobundle
+        echo "done"
+    fi
+
+    lns .vimrc
+}
+
+
+if [ -n "${TILLCONF_MAIN}" ]
+then
+    main
+fi
