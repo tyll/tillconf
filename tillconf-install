@@ -28,8 +28,8 @@ set -e
 # For debugging
 set -x
 
-DESTDIR="${1:-${HOME}}"
-TILLCONF="$(readlink -f "${0}")"
+DESTDIR="$(readlink -f ${1:-${HOME}})"
+TILLCONF="$(readlink -f "${0%/*}")/"
 
 c() {
     cp "${TILLCONF}/${1}" "${DESTDIR}/${2:-${1}}"
