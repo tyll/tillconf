@@ -28,6 +28,14 @@ def assert_commonprefix(path1, path2, expected):
 class TestInstall(object):
     def test_commonprefix(self):
         assert_commonprefix("/", "/", "/\n")
+        #FIXME: Not implemented yet
+        #assert_commonprefix("//", "//", "//\n")
         assert_commonprefix("/foo", "/", "/\n")
         assert_commonprefix("/foo", "/fu", "/\n")
+        assert_commonprefix("/foo", "/foo/", "/foo\n")
         assert_commonprefix("/foo/bar", "/foo", "/foo\n")
+        assert_commonprefix("/foo/bar", "/foo/baz", "/foo\n")
+        assert_commonprefix("/foo/bar/", "/foo/baz", "/foo\n")
+        assert_commonprefix("/foo/bar/", "/foo/bar", "/foo/bar\n")
+        assert_commonprefix("/foo/bar/", "/foo//bar", "/foo/bar\n")
+        assert_commonprefix("/foo/bar/", "/foo/./bar", "/foo/bar\n")

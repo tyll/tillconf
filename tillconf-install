@@ -39,12 +39,24 @@ set -e
 set -x
 
 # Generic utilities
+normpath() {
+    # /./ -> /
+    normed=${1//\/.\///}
+    # // -> /
+    # FIXME: Should actually not match at the beginning, because // != / in posix:
+    # http://pubs.opengroup.org/onlinepubs/009695399/basedefs/xbd_chap04.html#tag_04_11
+    normed=${normed//\/\///}
+    echo "${normed}"
+}
+
 commonprefix() {
-    # Return common prefix of $1 and $2
+    # Return common path prefix of $1 and $2
     _IFS=$IFS
     IFS=/
-    parts1=($1)
-    parts2=($2)
+    path1=$(normpath "$1")
+    path2=$(normpath "$2")
+    parts1=($path1)
+    parts2=($path2)
     IFS=$_IFS
 
     # Initial
