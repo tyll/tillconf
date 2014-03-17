@@ -253,6 +253,7 @@ vmap <Leader>gl :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("
 
 vmap ... c[.<C-v>.<C-v>.]<ESC>
 vmap <Leader>tvb :s,\\texttt{\([^}]*\)},\\verb^\1^,<CR>
+vmap <Leader>vb c\verb^<ESC>pa^<ESC>
 vmap <Leader>hyp :s,-,\\hyp{},cg<CR>
 
 " toggle spellchecking
