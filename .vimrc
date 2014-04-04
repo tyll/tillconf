@@ -251,9 +251,14 @@ let spec_chglog_format = "%a %b %d %Y Till Maas <opensource@till.name> -"
 " vmap <Leader>gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 vmap <Leader>gl :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
+" insert [...]
 vmap ... c[.<C-v>.<C-v>.]<ESC>
+" Change texttt to verbatim
 vmap <Leader>tvb :s,\\texttt{\([^}]*\)},\\verb^\1^,<CR>
+" Include selection into verbatim
 vmap <Leader>vb c\verb^<ESC>pa^<ESC>
+" alternative making selection to verbatim
+" vmap <Leader>vb <Esc>`>a^<Esc>`<i\verb^<Esc>
 vmap <Leader>hyp :s,-,\\hyp{},cg<CR>
 
 " toggle spellchecking
