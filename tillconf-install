@@ -148,7 +148,7 @@ lns() {
 
 
 main() {
-    read -p "Going to install tillconf..."
+    read -p "Going to install tillconf to '${DESTDIR}' - Abort with CTRL-C:"
     if [ ! -d ${DESTDIR}/.vim/bundle/neobundle ]
     then
         echo "Installing neobundle..."
