@@ -75,42 +75,47 @@ commonprefix() {
             matching=0
         fi
     done
-    # remove suffix
-    if [[ "${prefix}" != "/" ]]
-    then
-        prefix=${prefix%/}
-    fi
+    prefix=${prefix%/}
     echo "${prefix}"
 }
 
 
 relpath() {
     # Return relative path from $2 to $1
-    dir1="${1%/*}"
-    dir2="${2%/*}"
-    prefix=$(commonprefix "${dir1}" "${dir2}")
+    local dir1="${1%/*}"
+    local dir2="${2%/*}"
+    local prefix=$(commonprefix "${dir1}" "${dir2}")
 
-    subdirs1=${dir1#${prefix}}
-    subdirs2=${dir2#${prefix}}
+    local subdirs1=${dir1#${prefix}}
+    local subdirs2=${dir2#${prefix}}
 
-    _IFS=$IFS
+    local _IFS=$IFS
     IFS=/
-    parts2=($subdirs2)
+    local subdirparts2=($subdirs2)
     IFS=$_IFS
 
-    relativepath=""
-    for ((i=0; i < ${#parts2[@]} - 1; i++))
+    local relativepath=""
+    for ((i=0; i < ${#subdirparts2[@]} - 1; i++))
     do
         relativepath+="../"
     done
+
     # remove trailing slash
     relativepath="${relativepath%/}"
+    if [[ -z "${relativepath}" ]]
+    then
+        relativepath="."
+    fi
 
     # add subdirs1
     relativepath+="${subdirs1%/}"
 
     # add last component of 1
-    relativepath+="/${1##*/}"
+    local file1="${1##*/}"
+    if [[ -n "${file1}" ]]
+    then
+        relativepath+="/${file1}"
+    fi
 
     echo "${relativepath}"
 }
