@@ -1,0 +1,49 @@
+[alias]
+    co = checkout
+    st = status
+    ci = commit
+    br = branch
+
+[color]
+    diff = auto
+    branch = auto
+    status = auto
+
+[core]
+    # Will be default in later git versions
+    attributesfile = "~/.config/git/attributes"
+    excludesfile = "~/.config/git/excludes"
+
+[diff]
+    renames = true
+
+[diff "tex"]
+    xfuncname = "^(\\\\(section|chapter|part)\\*{0,1}\\{.*)$"
+
+[push]
+    default = simple
+
+[sendemail]
+    smtpserver = /usr/bin/msmtp
+
+# Source:
+# http://qa-rockstar.livejournal.com/9961.html
+[url "git://git.fedorahosted.org/git/"]
+    insteadOf = "fh:"
+[url "ssh://git.fedorahosted.org/git/"]
+    insteadOf = "fh-ssh:"
+[url "git://git.gnome.org/"]
+    insteadOf = "gnome:"
+[url "ssh://git.gnome.org/git/"]
+    insteadOf = "gnome-ssh:"
+[url "git://anongit.freedesktop.org/git/"]
+    insteadOf = "fdo:"
+[url "ssh://git.freedesktop.org/git/"]
+    insteadOf = "fdo-ssh:"
+
+[user]
+    name = Till Maas
+    email = opensource@till.name
+
+[include]
+    path = "~/.gitconfig-local"

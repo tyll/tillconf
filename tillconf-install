@@ -123,7 +123,7 @@ relpath() {
 
 relsymlink() {
     # Symlink to $1 from $2
-    ln -s -- $(relpath "${@}") ${2}
+    ln -sf -- $(relpath "${@}") ${2}
 }
 
 # Used for config management
@@ -157,6 +157,8 @@ main() {
     fi
 
     lns .vimrc
+    lns .gitconfig
+    lns .config/git
 }
 
 

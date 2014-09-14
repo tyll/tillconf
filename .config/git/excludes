@@ -1,0 +1,16 @@
+# latex
+*.aux
+*.log
+*.out
+*.toc.old
+*.toc
+*.fls
+
+# python
+*.pyc
+
+# vim swap files
+*/.swp
+*/.swo
+.*.swp
+.*.swo
