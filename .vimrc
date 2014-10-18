@@ -45,7 +45,9 @@ let g:easy_align_delimiters = {
 \        'right_margin': 1,
 \      }
 \}
+
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'airblade/vim-gitgutter'
 " Bundle 'scrooloose/syntastic'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'scrooloose/nerdtree'
