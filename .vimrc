@@ -255,21 +255,21 @@ let Tlist_Ctags_Cmd = s:tex_ctags .""
 let spec_chglog_format = "%a %b %d %Y Till Maas <opensource@till.name> -"
 " macros {{{1
 " Fix HTML umlauts
-:map <Leader>html-umlauts :%s/ü/\&uuml;/g<CR>:%s/ö/\&ouml;/g<CR>:%s/ä/\&auml;/g<CR>:%s/ß/\&szlig;/g<CR>:%s/Ü/\&Uuml;/g<CR>:%s/Ö/\&Ouml;/g<CR>:%s/Ä/\&auml;/g<CR>
+vnoremap <Leader>html-umlauts :%s/ü/\&uuml;/g<CR>:%s/ö/\&ouml;/g<CR>:%s/ä/\&auml;/g<CR>:%s/ß/\&szlig;/g<CR>:%s/Ü/\&Uuml;/g<CR>:%s/Ö/\&Ouml;/g<CR>:%s/Ä/\&auml;/g<CR>
 
 " visual blame
-" vmap <Leader>gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
-vmap <Leader>gl :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+" vnoremap <Leader>gl :<C-U>!svn blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
+vnoremap <Leader>gl :<C-U>!git blame <C-R>=expand("%:p") <CR> \| sed -n <C-R>=line("'<") <CR>,<C-R>=line("'>") <CR>p <CR>
 
 " insert [...]
-vmap ... c[.<C-v>.<C-v>.]<ESC>
+vnoremap ... c[.<C-v>.<C-v>.]<ESC>
 " Change texttt to verbatim
-vmap <Leader>tvb :s,\\texttt{\([^}]*\)},\\verb^\1^,<CR>
+vnoremap <Leader>tvb :s,\\texttt{\([^}]*\)},\\verb^\1^,<CR>
 " Include selection into verbatim
-vmap <Leader>vb c\verb^<ESC>pa^<ESC>
+vnoremap <Leader>vb c\verb^<ESC>pa^<ESC>
 " alternative making selection to verbatim
-" vmap <Leader>vb <Esc>`>a^<Esc>`<i\verb^<Esc>
-vmap <Leader>hyp :s,-,\\hyp{},cg<CR>
+" vnoremap <Leader>vb <Esc>`>a^<Esc>`<i\verb^<Esc>
+vnoremap <Leader>hyp :s,-,\\hyp{},cg<CR>
 
 " toggle spellchecking
 " map <C-i> :setlocal invspell<CR>
@@ -290,8 +290,8 @@ vnoremap <Leader>sc :s, -,\\\r -,g<CR>
 command -nargs=1 G silent lvimgrep "<args>" % | lopen
 command -nargs=0 LFX silent lvimgrep "FIXME" % | lopen
 " Copy and Paste with CTRL-C/CTRL-V
-"map <C-V> "+gP
-"cmap <C-V> <C-R>+
+"noremap <C-V> "+gP
+"cnoremap <C-V> <C-R>+
 "vnoremap <C-C> "+y
 " autocommand {{{1
 " Default content for .py-files
