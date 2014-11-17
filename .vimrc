@@ -284,6 +284,9 @@ nnoremap <Leader>t4 :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
 nnoremap <Leader>t8 :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
 nnoremap <Leader>tt :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 
+" Split commandline
+vnoremap <Leader>sc :s, -,\\\r -,g<CR>
+
 command -nargs=1 G silent lvimgrep "<args>" % | lopen
 command -nargs=0 LFX silent lvimgrep "FIXME" % | lopen
 " Copy and Paste with CTRL-C/CTRL-V
