@@ -143,7 +143,14 @@ md() {
 
 
 lns() {
-    relsymlink "${TILLCONF}${1}" "${DESTDIR}/${2:-${1}}"
+    local target="${TILLCONF}${1}"
+    local linkfile="${DESTDIR}/${2:-${1}}"
+
+    # If target is a directory install linkfile only if it does not exist
+    if [ ! \( -d "${target}" -a -e "${linkfile}" \) ]
+    then
+        relsymlink "${target}" "${linkfile}"
+    fi
 }
 
 
