@@ -3,6 +3,7 @@
     st = status
     ci = commit
     br = branch
+    lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
 
 [color]
     diff = auto
@@ -47,3 +48,5 @@
 
 [include]
     path = "~/.gitconfig-local"
+[format]
+	signoff = true

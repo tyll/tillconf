@@ -58,6 +58,9 @@ let NERDTreeIgnore=['\.sw[po]$', '\.o$', '\.lst$', '\.elf$', '\.hex$', '\.py[co]
 NeoBundle 'vim-scripts/VOoM'
 NeoBundle 'vim-scripts/taglist.vim'
 
+" Colorscheme
+" NeoBundle 'tomasr/molokai'
+
 " Python IDE {{{2
 " http://unlogic.co.uk/posts/vim-python-ide.html
 " Font Problems:
