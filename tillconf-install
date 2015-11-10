@@ -158,6 +158,7 @@ main() {
 
     lns .vimrc
     lns .gitconfig
+    md .config/
     lns .config/git
 }
 
