@@ -161,6 +161,7 @@ set number
 " helpful statusline for split windows
 set statusline=%(%f%1*%m%*%r%h%w\%)%=%(%q[%Y]\ [%04l/%04L:%04v\ %obytes\ (%p%%)]\ %)
 syntax on
+set background=light
 
 "" indentation
 set autoindent
@@ -172,12 +173,13 @@ set expandtab
 " line length
 "set textwidth=80
 
-
+" begin vim-latex:
 " Make :grep work with a single file
 set grepprg=grep\ -nH\ $*
-filetype plugin on
-
-filetype indent on
+" Already set for neobundle
+"filetype plugin on
+"filetype indent on
+" end vim-latex
 
 " whitespace highlights
 set list
