@@ -29,12 +29,8 @@
 
 # Source:
 # http://qa-rockstar.livejournal.com/9961.html
-[url "git://git.fedorahosted.org/git/"]
-    insteadOf = "fh:"
 [url "ssh://git.fedorahosted.org/git/"]
     insteadOf = "fh-ssh:"
-[url "git://git.gnome.org/"]
-    insteadOf = "gnome:"
 [url "ssh://git.gnome.org/git/"]
     insteadOf = "gnome-ssh:"
 [url "git://anongit.freedesktop.org/git/"]

@@ -57,6 +57,7 @@ let NERDTreeIgnore=['\.sw[po]$', '\.o$', '\.lst$', '\.elf$', '\.hex$', '\.py[co]
 
 NeoBundle 'vim-scripts/VOoM'
 NeoBundle 'vim-scripts/taglist.vim'
+NeoBundle 'vim-latex/vim-latex'
 
 " Colorscheme
 " NeoBundle 'tomasr/molokai'
@@ -192,7 +193,8 @@ set list
 " \u21e5 (⇥, tabulator sign)
 " \u21c7 (⇇, double arrow left)
 " \u21c9 (⇉, double arrow right)
-set listchars=tab:.·,trail:░
+" set listchars=tab:.·,trail:░
+let &listchars = "tab:.\u00b7,trail:\u2591"
 " show unprintable characters as hex codes
 set display+=uhex
 
