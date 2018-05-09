@@ -152,6 +152,12 @@ lns() {
     fi
 }
 
+appendline() {
+    local line="${1}"
+    local target="${DESTDIR}/${2}"
+    grep -qs "${line}" "${target}" || echo "${line}" >> "${target}"
+}
+
 
 main() {
     read -p "Going to install tillconf to '${DESTDIR}' - Abort with CTRL-C:"
@@ -166,6 +172,11 @@ main() {
     lns .gitconfig
     md .config/
     lns .config/git
+    lns .config/powerline
+    python3 -c "import  powerline_gitstatus" &> /dev/null || \
+        pip3 install --local --upgrade powerline-gitstatus
+
+    appendline "source ${TILLCONF}bashrc" .bashrc
 }
 
 
