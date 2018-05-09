@@ -22,21 +22,20 @@
 # THE SOFTWARE.
 #}}}
 
+# Abort on failure
+set -e
+
+# For debugging
+set -x
+
 # Check whether script executed or sourced
-if [ "$_" == "$0" ]
+if [ "${0##*/}" = "install" ] || [ "${0##*/}" = "tillconf-install" ]
 then
     # Script was executed
     TILLCONF_MAIN="true"
     DESTDIR="$(readlink -f ${1:-${HOME}})"
     TILLCONF="$(readlink -f "${0%/*}")/"
 fi
-
-
-# Abort on failure
-set -e
-
-# For debugging
-set -x
 
 # Generic utilities
 normpath() {
