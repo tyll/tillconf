@@ -164,7 +164,8 @@ main() {
     if [ ! -d ${DESTDIR}/.vim/bundle/neobundle ]
     then
         echo "Installing neobundle..."
-        git clone https://github.com/Shougo/neobundle.vim ${DESTDIR}/.vim/bundle/neobundle
+        git clone https://github.com/Shougo/neobundle.vim \
+            ${DESTDIR}/.vim/bundle/neobundle
         echo "done"
     fi
 
