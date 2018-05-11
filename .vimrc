@@ -174,6 +174,9 @@ set softtabstop=4
 set tabstop=4
 set expandtab
 
+" Do not use two spaces when joining lines ending with .?!
+set nojoinspaces
+
 " line length
 "set textwidth=80
 
@@ -303,8 +306,8 @@ command -nargs=0 LFX silent lvimgrep "FIXME" % | lopen
 " autocommand {{{1
 " Default content for .py-files
 " http://article.gmane.org/gmane.editors.vim/68159
-au BufNewFile *.py,*.PY sil! 0put='#!/usr/bin/python -tt'
-au BufNewFile *.py,*.PY sil! 1put='# vim: fileencoding=utf8 '
+au BufNewFile *.py,*.PY sil! 0put='#!/usr/bin/python3 -tt'
+au BufNewFile *.py,*.PY sil! 1put='# vim: fileencoding=utf8'
 au BufNewFile *.py,*.PY sil! 3
 " Default content when writing .py files:
 " au BufWrite *.py,*.PY if getline('1')!~'bin/python'|sil! 0put='#!/usr/bin/python -tt'|endif
