@@ -72,7 +72,7 @@ let g:go_fmt_autosave = 1
 " https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation
 " NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
-NeoBundle 'klen/python-mode'
+NeoBundle 'python-mode/python-mode'
 " Python-mode
 " Activate rope
 " Keys:
