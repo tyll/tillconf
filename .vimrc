@@ -59,6 +59,10 @@ NeoBundle 'vim-scripts/VOoM'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'vim-latex/vim-latex'
 
+NeoBundle 'fatih/vim-go'
+let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 1
+
 " Colorscheme
 " NeoBundle 'tomasr/molokai'
 
