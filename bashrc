@@ -45,5 +45,20 @@ alias vispec="vim *.spec"
 alias __list_rpm_gpg='rpm --qf "%{name}-%{version}-%{release} %{summary}\n" -q gpg-pubkey'
 alias tma="tmux attach"
 alias nvr="/bin/rpm --qf '%{name}-%{version}-%{release}\n' -q"
+alias youtube-dl='youtube-dl --output "%(title)s-%(extractor)s:%(id)s.%(ext)s"'
 
+PATH=${PATH}:${HOME}/go/bin
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
+
+# Settings for X and non X
+if [[ "${DISPLAY}" != "" ]]
+then
+    xset b off
+    xset r rate 220 45
+    xkbset sticky -twokey # latchlock
+    xkbset exp 3600 sticky # latchlock
+fi
+if [[ "${TERM}" != "" ]]
+then
+    setterm -blength 0 -bfreq 0 &> /dev/null
+fi
