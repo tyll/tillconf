@@ -29,7 +29,8 @@ shopt -s  histappend
 shopt -s cdspell
 
 export HISTCONTROL=ignoredups:erasedups
-HISTSIZE=2048000
+export HISTSIZE=2048000
+export HISTFILESIZE="${HISTSIZE}"
 
 # delay, rate in 1/s
 xset r rate 220 45
@@ -46,7 +47,34 @@ alias __list_rpm_gpg='rpm --qf "%{name}-%{version}-%{release} %{summary}\n" -q g
 alias tma="tmux attach"
 alias nvr="/bin/rpm --qf '%{name}-%{version}-%{release}\n' -q"
 alias youtube-dl='youtube-dl --output "%(title)s-%(extractor)s:%(id)s.%(ext)s"'
+alias kvm_iso="qemu-kvm -boot d -k de -m 1024 -usbdevice tablet -cdrom"
+eval `dircolors -b /etc/DIR_COLORS`
+alias d="ls --color=auto"
+alias ls="ls --color=auto"
+alias ll="ls --color=auto -lA"
+alias l="ls --color=auto -l"
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias cclive='cclive --format best --filename-format="%t-%h:%i.%s"'
+alias clive='clive --format best --filename-format="%t-%h:%i.%s"'
+alias ..="cd .."
+alias md="mkdir -p"
 
+alias gc="git commit -v"
+alias gcv="gc"
+alias gcva="gcv -a"
+alias ytd="youtube-dl"
+alias iSSH="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+alias dos2unix="recode ibmpc..lat1"
+alias unix2dos="recode lat1..ibmpc"
+#unset SSH_ASKPASS;
+
+
+ssh_convert () {
+    ssh-keygen -f "${1}" -i
+}
+
+MAIL=$HOME/Maildir/
 PATH=${PATH}:${HOME}/go/bin
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
@@ -57,6 +85,7 @@ then
     xset r rate 220 45
     xkbset sticky -twokey # latchlock
     xkbset exp 3600 sticky # latchlock
+    xinput set-button-map "Logitech USB-PS/2 Optical Mouse" 1 2 3 4 5 6 7 2 2>/dev/null
 fi
 if [[ "${TERM}" != "" ]]
 then
