@@ -17,32 +17,31 @@
 
 [diff]
     renames = true
+    algorithm = patience
 
 [diff "tex"]
     xfuncname = "^(\\\\(section|chapter|part)\\*{0,1}\\{.*)$"
+
+[log]
+    date = local
 
 [push]
     default = simple
 
 [sendemail]
-    smtpserver = /usr/bin/msmtp
-
-# Source:
-# http://qa-rockstar.livejournal.com/9961.html
-[url "ssh://git.fedorahosted.org/git/"]
-    insteadOf = "fh-ssh:"
-[url "ssh://git.gnome.org/git/"]
-    insteadOf = "gnome-ssh:"
-[url "git://anongit.freedesktop.org/git/"]
-    insteadOf = "fdo:"
-[url "ssh://git.freedesktop.org/git/"]
-    insteadOf = "fdo-ssh:"
+    smtpserver = /usr/sbin/sendmail
+    envelopeSender = opensource@till.name
 
 [user]
     name = Till Maas
     email = opensource@till.name
 
+[format]
+    signoff = true
+
+[branch]
+    autoSetupRebase = always
+
+
 [include]
     path = "~/.gitconfig-local"
-[format]
-	signoff = true
