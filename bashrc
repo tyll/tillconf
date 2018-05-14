@@ -32,11 +32,6 @@ export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=2048000
 export HISTFILESIZE="${HISTSIZE}"
 
-# delay, rate in 1/s
-xset r rate 220 45
-gsettings set org.gnome.desktop.peripherals.keyboard delay 220
-# Milliseconds between repeat keypresses
-gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 22
 
 export EDITOR=vim
 command -v vimx >/dev/null && alias vim="vimx"
@@ -81,8 +76,12 @@ export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswi
 # Settings for X and non X
 if [[ "${DISPLAY}" != "" ]]
 then
-    xset b off
     xset r rate 220 45
+    # delay, rate in 1/s
+    xset r rate 220 45
+    gsettings set org.gnome.desktop.peripherals.keyboard delay 220
+    # Milliseconds between repeat keypresses
+    gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 22
     xkbset sticky -twokey # latchlock
     xkbset exp 3600 sticky # latchlock
     xinput set-button-map "Logitech USB-PS/2 Optical Mouse" 1 2 3 4 5 6 7 2 2>/dev/null
