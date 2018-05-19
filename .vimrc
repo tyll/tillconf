@@ -94,14 +94,11 @@ let g:pymode_doc_key = 'K'
 
 "Linting
 let g:pymode_lint = 1
-" let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_checker = "pyflakes,pep8"
-" let g:pymode_lint_checker = "pyflakes,pep8,pylint"
-" let g:pymode_lint_checker = "pyflakes,pep8,mccabe,pylint,pep257"
+let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
 " Auto check on save
-let g:pymode_lint_write = 1
+let g:pymode_lint_on_write = 1
 " Run linter on the fly
-let g:pymode_lint_onfly = 1
+let g:pymode_lint_on_fly = 1
 " Do not fix whitespace automatically
 let g:pymode_utils_whitespaces = 0
 
