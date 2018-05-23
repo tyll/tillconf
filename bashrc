@@ -76,7 +76,7 @@ PATH=${PATH}:${HOME}/go/bin
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel'
 
 # Settings for X and non X
-if [[ "${DISPLAY}" != "" ]]
+if [[ "${DISPLAY}" != "" ]] && xset q &>/dev/null
 then
     # delay, rate in 1/s
     xset r rate 220 45
