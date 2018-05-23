@@ -33,6 +33,9 @@ export HISTSIZE=2048000
 export HISTFILESIZE="${HISTSIZE}"
 
 
+command -v direnv &>/dev/null && eval "$(direnv hook bash)"
+
+
 export EDITOR=vim
 command -v vimx >/dev/null && alias vim="vimx"
 alias vi=vim
