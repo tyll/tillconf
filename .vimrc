@@ -72,6 +72,9 @@ let g:go_fmt_autosave = 1
 " https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation
 " NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 
+NeoBundle 'w0rp/ale'
+let g:ale_set_quickfix = 1
+
 NeoBundle 'python-mode/python-mode'
 " Python-mode
 " Activate rope
@@ -93,7 +96,7 @@ let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 
 "Linting
-let g:pymode_lint = 1
+let g:pymode_lint = 0
 let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
 " Auto check on save
 let g:pymode_lint_on_write = 1
