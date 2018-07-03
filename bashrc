@@ -56,6 +56,9 @@ alias egrep='egrep --color=auto'
 alias cclive='cclive --format best --filename-format="%t-%h:%i.%s"'
 alias clive='clive --format best --filename-format="%t-%h:%i.%s"'
 alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
 alias md="mkdir -p"
 
 alias gc="git commit -v"
