@@ -174,10 +174,10 @@ main() {
     md .config/
     lns .config/git
     lns .config/powerline
+    appendline "source ${TILLCONF}bashrc" .bashrc
     python3 -c "import  powerline_gitstatus" &> /dev/null || \
         pip3 install --user --upgrade powerline-gitstatus
 
-    appendline "source ${TILLCONF}bashrc" .bashrc
 }
 
 
