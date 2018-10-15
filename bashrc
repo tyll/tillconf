@@ -1,16 +1,18 @@
-if [ -f `which powerline-daemon` ]; then
+if command -v powerline-daemon >/dev/null 2>&1; then
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
-  . /usr/share/powerline/bash/powerline.sh
+  test -f /usr/share/powerline/bash/powerline.sh && . /usr/share/powerline/bash/powerline.sh
 fi
 
-keychain
-[ -z "$HOSTNAME" ] && HOSTNAME=`uname -n`
-[ -f $HOME/.keychain/$HOSTNAME-sh ] && \
-    . $HOME/.keychain/$HOSTNAME-sh
-[ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
-    . $HOME/.keychain/$HOSTNAME-sh-gpg
+if command -v keychain >/dev/null 2>&1; then
+    keychain
+    [ -z "$HOSTNAME" ] && HOSTNAME=`uname -n`
+    [ -f $HOME/.keychain/$HOSTNAME-sh ] && \
+        . $HOME/.keychain/$HOSTNAME-sh
+    [ -f $HOME/.keychain/$HOSTNAME-sh-gpg ] && \
+        . $HOME/.keychain/$HOSTNAME-sh-gpg
+fi
 
 # If set, bash checks the window size after each command and,
 # if necessary, updates the values of LINES and COLUMNS.
