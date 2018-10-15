@@ -45,3 +45,6 @@
 
 [include]
     path = "~/.gitconfig-local"
+[rebase]
+	autoSquash = true
+	diffstat = true
