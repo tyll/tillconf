@@ -171,6 +171,7 @@ main() {
 
     lns .vimrc
     lns .gitconfig
+    lns .latex-gmk.conf
     md .config/
     lns .config/git
     lns .config/powerline
