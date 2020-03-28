@@ -266,7 +266,7 @@ let Tlist_Ctags_Cmd = s:tex_ctags .""
 \.' --regex-tex="/\\\\FIXME\{[a-zA-Z]*}\{([^}]*)\}/\1/s,FIXME/"'
 
 " Specfile editing, used with <leader>c in command modus
-let spec_chglog_format = "%a %b %d %Y Till Maas <opensource@till.name> -"
+let spec_chglog_format = "%a %b %d %Y Till Maas <opensource@till.name>"
 " macros {{{1
 " Fix HTML umlauts
 vnoremap <Leader>html-umlauts :%s/ü/\&uuml;/g<CR>:%s/ö/\&ouml;/g<CR>:%s/ä/\&auml;/g<CR>:%s/ß/\&szlig;/g<CR>:%s/Ü/\&Uuml;/g<CR>:%s/Ö/\&Ouml;/g<CR>:%s/Ä/\&auml;/g<CR>
