@@ -249,6 +249,10 @@ endif
 " viminfo
 set viminfo=!,%,'100,<50,s10,h
 
+" Open new split planes right and below
+set splitbelow
+set splitright
+
 " Define <Leader> as , instead of backslash
 let mapleader = ","
 
