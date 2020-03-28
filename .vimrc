@@ -36,6 +36,7 @@ NeoBundleFetch 'Shougo/neobundle.vim', {'name': 'neobundle'}
 NeoBundle 'stephpy/vim-yaml'
 NeoBundle 'chase/vim-ansible-yaml'
 
+NeoBundle 'kien/ctrlp.vim'
 
 NeoBundle 'junegunn/vim-easy-align'
 
@@ -54,6 +55,12 @@ NeoBundle 'scrooloose/nerdtree'
 " configure NERDtree
 " ignore files
 let NERDTreeIgnore=['\.sw[po]$', '\.o$', '\.lst$', '\.elf$', '\.hex$', '\.py[co]$']
+
+NeoBundle 'rhysd/vim-gfm-syntax'
+NeoBundle 'JamshedVesuna/vim-markdown-preview'
+let vim_markdown_preview_github=1
+
+NeoBundle 'gu-fan/riv.vim'
 
 NeoBundle 'vim-scripts/VOoM'
 NeoBundle 'vim-scripts/taglist.vim'
@@ -74,7 +81,10 @@ let g:go_fmt_autosave = 1
 
 NeoBundle 'w0rp/ale'
 let g:ale_set_quickfix = 1
+let g:ale_echo_msg_format = '%linter%:%code%: %s [%severity%]'
+let g:ale_python_pylint_options = '--disable=invalid-name,missing-docstring'
 
+NeoBundle 'jalvesaq/vimcmdline'
 NeoBundle 'python-mode/python-mode'
 " Python-mode
 " Activate rope
@@ -95,9 +105,11 @@ let g:pymode_rope = 0
 let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 
+" let g:pymode_python = 'python3'
 "Linting
 let g:pymode_lint = 0
-let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
+" let g:pymode_lint_checkers = ['pyflakes', 'pep8', 'mccabe', 'pylint', 'pep257']
+let g:pymode_lint_checkers = ['pylint']
 " Auto check on save
 let g:pymode_lint_on_write = 1
 " Run linter on the fly

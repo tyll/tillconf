@@ -1,3 +1,3 @@
 #! /bin/bash
 sudo dnf install powerline powerline-fonts keychain xkbset
-sudo dnf install light dmenu
+sudo dnf install light dmenu tilix rofi pasystray
