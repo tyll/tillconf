@@ -173,6 +173,7 @@ main() {
     lns .gitconfig
     lns .latex-gmk.conf
     md .config/
+    lns .config/i3
     lns .config/git
     lns .config/powerline
     appendline "source ${TILLCONF}bashrc" .bashrc
