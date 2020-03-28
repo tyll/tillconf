@@ -201,7 +201,7 @@ set list
 " \u21c7 (⇇, double arrow left)
 " \u21c9 (⇉, double arrow right)
 " set listchars=tab:.·,trail:░
-let &listchars = "tab:.\u00b7,trail:\u2591"
+let &listchars = "tab:.\u00b7,trail:\u2591,nbsp:\u2423"
 " show unprintable characters as hex codes
 set display+=uhex
 
