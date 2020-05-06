@@ -63,11 +63,17 @@ alias ....="cd ../../.."
 alias .....="cd ../../../.."
 alias md="mkdir -p"
 
+alias g="git"
 alias gc="git commit -v"
 alias gcv="gc"
 alias ga="gc --amend"
 alias gcva="gcv -a"
 alias gst="git status"
+alias grbm="git rebase -i master"
+
+alias a="ansible"
+alias ap="ansible-playbook"
+
 alias ytd="youtube-dl"
 alias iSSH="ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
 alias dos2unix="recode ibmpc..lat1"

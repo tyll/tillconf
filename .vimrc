@@ -33,8 +33,9 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim', {'name': 'neobundle'}
 
 " For ansible
-NeoBundle 'stephpy/vim-yaml'
-NeoBundle 'chase/vim-ansible-yaml'
+" NeoBundle 'stephpy/vim-yaml'
+" NeoBundle 'chase/vim-ansible-yaml'
+NeoBundle 'pearofducks/ansible-vim'
 
 NeoBundle 'kien/ctrlp.vim'
 
@@ -49,7 +50,7 @@ let g:easy_align_delimiters = {
 
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
-" Bundle 'scrooloose/syntastic'
+" NeoBundle 'scrooloose/syntastic'
 NeoBundle 'vimwiki/vimwiki'
 NeoBundle 'scrooloose/nerdtree'
 " configure NERDtree
@@ -60,15 +61,17 @@ NeoBundle 'rhysd/vim-gfm-syntax'
 NeoBundle 'JamshedVesuna/vim-markdown-preview'
 let vim_markdown_preview_github=1
 
-NeoBundle 'gu-fan/riv.vim'
+"NeoBundle 'gu-fan/riv.vim'
 
 NeoBundle 'vim-scripts/VOoM'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'vim-latex/vim-latex'
 
-NeoBundle 'fatih/vim-go'
+" NeoBundle 'fatih/vim-go'
 let g:go_fmt_command = "goimports"
 let g:go_fmt_autosave = 1
+
+" NeoBundle 'gu-fan/riv.vim'
 
 " Colorscheme
 " NeoBundle 'tomasr/molokai'
@@ -84,8 +87,12 @@ let g:ale_set_quickfix = 1
 let g:ale_echo_msg_format = '%linter%:%code%: %s [%severity%]'
 let g:ale_python_pylint_options = '--disable=invalid-name,missing-docstring'
 
+let g:ale_pattern_options = {
+\ '\.py$': {'ale_linters': ['flake8', 'pylint', 'yamllint'], 'ale_fixers': []},
+\}
+
 NeoBundle 'jalvesaq/vimcmdline'
-NeoBundle 'python-mode/python-mode'
+NeoBundle 'python-mode/python-mode', 'develop'
 " Python-mode
 " Activate rope
 " Keys:
@@ -182,6 +189,7 @@ set number
 set statusline=%(%f%1*%m%*%r%h%w\%)%=%(%q[%Y]\ [%04l/%04L:%04v\ %obytes\ (%p%%)]\ %)
 syntax on
 set background=light
+" set background=dark
 
 "" indentation
 set autoindent
