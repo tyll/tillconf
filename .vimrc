@@ -251,11 +251,8 @@ highlight SpellRare term=italic cterm=italic
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline ctermfg=4
 
-" Spellchecking for mutt
-autocmd FileType mail set spell
-
-" Spellchecking in git commits
-autocmd FileType gitcommit set spell
+" Enable spellchecking
+autocmd FileType gitcommit,mail,markdown setlocal spell
 
 " automatically store and update the file
 set autoread
